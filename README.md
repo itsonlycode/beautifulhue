@@ -17,11 +17,11 @@ Features
 Documentation
 -------------
 
-###Requirements
+### Requirements
 
 - Python 2.6+
 
-###Installation
+### Installation
 
 Via pip:
 
@@ -39,10 +39,10 @@ or via source:
 python setup.py install
 ```
 
-###Bridge
+### Bridge
 ([official reference](http://www.developers.meethue.com/documentation/lights-api))
 
-####Instantiation:
+#### Instantiation:
 
 ```python
 from beautifulhue.api import Bridge
@@ -54,12 +54,12 @@ bridge = Bridge(device={'ip':'192.168.1.14'}, user={'name':'newdeveloper'})
 
 For a more detailed example (including how to create the user if necessary) see the ([wiki](https://github.com/allanbunch/beautifulhue/wiki/Example:-Connect-to-the-Bridge))
 
-###Lights
+### Lights
 ([official reference](http://www.developers.meethue.com/documentation/lights-api))
 
-####Methods:
+#### Methods:
 
-####_get_
+#### _get_
 
 **Get a single light.**
 ```python
@@ -129,7 +129,7 @@ resource = {'which':'all', 'verbose':True}
 bridge.light.get(resource)
 ```
 
-####_find_
+#### _find_
 
 **Discover new lights.**
 ```python
@@ -141,7 +141,7 @@ resource = {'which':'new'}
 bridge.light.find(resource)
 ```
 
-####_update_
+#### _update_
 
 **Update a light's attributes**
 ```python
@@ -174,12 +174,12 @@ bridge.light.update(resource)
 ```
 
 
-###Groups
+### Groups
 ([official reference](http://www.developers.meethue.com/documentation/groups-api))
 
-####Methods:
+#### Methods:
 
-####_get_
+#### _get_
 
 **Get a bridge group.**
 ```python
@@ -217,7 +217,7 @@ resource = {'which':'all', 'verbose':True}
 bridge.group.get(resource)
 ```
 
-####_update_
+#### _update_
 
 **Update a bridge group.**
 ```python
@@ -239,12 +239,12 @@ bridge.group.update(resource)
 ```
 
 
-###Schedules
+### Schedules
 ([official reference](http://www.developers.meethue.com/documentation/schedules-api-0))
 
-####Methods:
+#### Methods:
 
-####_get_
+#### _get_
 
 **Get a bridge schedule.**
 ```python
@@ -282,7 +282,7 @@ resource = {'which':'all', 'verbose':True}
 bridge.schedule.get(resource)
 ```
 
-####_create_
+#### _create_
 
 **Create a bridge schedule.**
 ```python
@@ -306,7 +306,7 @@ bridge.schedule.create(resource)
 ```
 
 **Update a bridge schedule.**
-####_update_
+#### _update_
 ```python
 # Update schedule 1's description and time.
 from beautifulhue.api import Bridge
@@ -320,7 +320,7 @@ resource = {'which':1, 'data':data}
 bridge.schedule.update(resource)
 ```
 
-####_delete_
+#### _delete_
 
 **Delete a bridge schedule.**
 ```python
@@ -332,12 +332,12 @@ resource = {'which':1}
 bridge.schedule.delete(resource)
 ```
 
-###Configuration
+### Configuration
 ([official reference](http://www.developers.meethue.com/documentation/configuration-api))
 
-####Methods:
+#### Methods:
 
-####_get_
+#### _get_
 
 **Get bridge configuration.**
 ```python
@@ -359,7 +359,7 @@ resource = {'which':'system'}
 bridge.config.get(resource)
 ```
 
-####_create_
+#### _create_
 
 **Create a bridge configuration object.**
 ```python
@@ -371,7 +371,7 @@ resource = {'user':{"devicetype": "beautifulhue", "name": "1234567890"}}
 bridge.config.create(resource)
 ```
 
-####_update_
+#### _update_
 
 **Update bridge configuration attributes.**
 ```python
@@ -385,7 +385,7 @@ resource = {
 bridge.config.update(resource)
 ```
 
-####_delete_
+#### _delete_
 
 **Delete a bridge configuration object.**
 ```python
@@ -397,17 +397,17 @@ resource = {'user':{"name": "1234567890"}}
 bridge.config.delete(resource)
 ```
 
-###Portal
+### Portal
 
-####Instantiation:
+#### Instantiation:
 
 ```python
 from beautifulhue.api import Portal
 ```
 
-####Methods:
+#### Methods:
 
-####_get_
+#### _get_
 
 **Get hue portal data.**
 ```python
