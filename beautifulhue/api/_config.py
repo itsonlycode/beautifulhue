@@ -1,26 +1,27 @@
 from beautifulhue.libs.http import Request
 
+
 class Config:
 
     def __init__(self, bridge, user, debug):
         self.bridge = bridge
         self.user = user
         self.debug = debug
-        
 
     def get(self, resource, debug=False):
         """
 
         """
-        
+
         services = {
-            'bridge':{'service':'/config'},
-            'system':{'service':''}
+            'bridge': {'service': '/config'},
+            'system': {'service': ''}
         }
-        
+
         request = Request()
         path = 'api/{username}{service}'.format(username=self.user['name'],
-                                                service=services[resource['which']]['service'])
+                                                service=services[
+                                                resource['which']]['service'])
         url = 'http://{bridge_ip}/{path}'.format(bridge_ip=self.bridge['ip'],
                                                  path=path)
 
@@ -29,8 +30,7 @@ class Config:
             return dict(info=status, resource=content)
         else:
             return dict(resource=content)
-    
-    
+
     def create(self, resource, debug=False):
         """
 
@@ -38,14 +38,13 @@ class Config:
 
         request = Request()
         url = 'http://{bridge_ip}/api'.format(bridge_ip=self.bridge['ip'])
-        if resource.has_key('user'):
+        if 'user' in resource:
             resource['user']['username'] = resource['user'].pop('name')
             status, content = request.post(url, resource['user'])
         if debug:
             return dict(info=status, resource=content)
         else:
             return dict(resource=content)
-
 
     def update(self, resource, debug=False):
         """
@@ -61,7 +60,6 @@ class Config:
             return dict(info=status, resource=content)
         else:
             return dict(resource=content)
-    
 
     def delete(self, resource, debug=False):
         """
@@ -69,18 +67,17 @@ class Config:
         """
 
         request = Request()
-        if resource.has_key('user'):
-            service = 'config/whitelist/{id}'.format(id=resource['user']['name'])
+        if 'user' in resource:
+            service = 'config/whitelist/{id}'.format(
+                id=resource['user']['name'])
         path = 'api/{username}/{service}'.format(
-                                               username=self.user['name'],
-                                               service=service
-                                           )
+               username=self.user['name'],
+               service=service)
         url = 'http://{bridge_ip}/{path}'.format(bridge_ip=self.bridge['ip'],
                                                  path=path)
-        
+
         status, content = request.delete(url)
         if debug:
             return dict(info=status, resource=content)
         else:
             return dict(resource=content)
-    

@@ -1,5 +1,6 @@
 from beautifulhue.libs.http import Request
 
+
 class Portal:
     """
     @status: Done
@@ -16,7 +17,7 @@ class Portal:
         request = Request()
         url = 'http://www.meethue.com/api/nupnp'
         status, content = request.get(url)
-        
+
         if debug:
             return dict(info=status, resource=content)
         else:
