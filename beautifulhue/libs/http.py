@@ -49,7 +49,7 @@ class Request:
         # Python 3.x's urllib.request loads HTTP Messages as bytes
         # so first we have to decode the message into a UTF-8 string
         # then convert it into a dictionary using json.loads
-        return conn.info().items(), json.loads(content.decode('utf-8'))
+        return conn.info().items(), content
 
     def get(self, url, data=None, content_type='application/json'):
         return self._request(url, data, 'GET', content_type)
