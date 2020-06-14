@@ -43,7 +43,7 @@ class Request:
         response = conn.read()
         conn.close()
         try:
-            content = json.loads(response)
+            content = json.loads(response.decode('utf-8'))
         except Exception:
             content = response
         # Python 3.x's urllib.request loads HTTP Messages as bytes
